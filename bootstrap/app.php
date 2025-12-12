@@ -24,6 +24,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'api/*' ,
             'sanctum/csrf-cookie',
         ]);
+        $middleware->trustProxies(at: '*');
          $middleware->web([]);
         $middleware->api([]);
     })
