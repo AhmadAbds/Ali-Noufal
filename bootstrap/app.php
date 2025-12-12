@@ -20,6 +20,10 @@ return Application::configure(basePath: dirname(__DIR__))
             'permission'=>PermissionMiddleware::class,
             'role_or_permission'=>RoleOrPermissionMiddleware::class
         ]);
+        $middleware->validateCsrfTokens(except:[
+            'api/*' ,
+            'sanctum/csrf-cookie',
+        ]);
          $middleware->web([]);
         $middleware->api([]);
     })
